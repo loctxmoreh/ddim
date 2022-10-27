@@ -12,13 +12,13 @@ export XDG_CACHE_HOME=$HOME/.cache
 /usr/bin/env python main.py \
         --config cifar10.yml \
         --doc ddim --sample --fid --timesteps 10 --eta 0.1 \
-        --exp /data/work/ddim \
+        --exp $work_dir \
         --use_pretrained \
         --ni
 
 # use local pretrained checkpoints
 # /usr/bin/env python main.py \
 #         --config cifar10.yml \
-#         --exp /data/work/ddim \
+#         --exp $work_dir \
 #         --doc ddim --sample --fid --timesteps 10 --eta 0.1 \
 #         --ni
