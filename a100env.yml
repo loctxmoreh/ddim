@@ -1,0 +1,18 @@
+name: ddim
+channels:
+  - pytorch
+dependencies:
+  - python=3.8
+  - pytorch=1.7.1
+  - torchvision
+  - torchaudio
+  - pip
+  - pip:
+    - pyyaml
+    - tensorboard
+    - Pillow
+    - tqdm
+    - lmdb
+    - numpy
+    - pandas
+    - requests
