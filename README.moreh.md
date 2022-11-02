@@ -1,5 +1,5 @@
 # [Moreh] Running DDIM on Moreh AI Framework
-![](https://badgen.net/badge/Nvidia-A100/passed/green)
+![](https://badgen.net/badge/Moreh-HAC/passed/green) ![](https://badgen.net/badge/Nvidia-A100/passed/green)
 
 ## Prepare
 
@@ -27,8 +27,16 @@ conda activate ddim
 ```
 
 #### On HAC VM
-TODO:
-- [ ] Set up env on HAC VM
+Using `hacenv.yml` to create a `conda` environment:
+```bash
+conda create -f hacenv.yml
+conda activate ddim
+```
+
+After create env by `hacenv.yml`, re-run this command to install `torch` with Moreh:
+```bash
+conda install -y torchvision torchaudio numpy protobuf==3.13.0 pytorch==1.7.1 cpuonly -c pytorch
+```
 
 ## Run
 
