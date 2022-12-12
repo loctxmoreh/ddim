@@ -3,7 +3,6 @@
 set -e
 
 work_dir="/data/work/ddim"
-[[ ! -d $work_dir ]] && echo "The directory ${work_dir} not found" && exit 1
 
 # set up cachedir to download pretrained models
 export XDG_CACHE_HOME=$HOME/.cache
@@ -17,8 +16,11 @@ export XDG_CACHE_HOME=$HOME/.cache
         --ni
 
 # use local pretrained checkpoints
-# /usr/bin/env python main.py \
-#         --config cifar10.yml \
-#         --exp $work_dir \
-#         --doc ddim --sample --fid --timesteps 10 --eta 0.1 \
-#         --ni
+[[ ! -f $work_dir/logs/ddim/ckpt.pth ]] \
+    && echo "No checkpoint found in $work_dir" && exit 1
+
+/usr/bin/env python main.py \
+        --config cifar10.yml \
+        --exp $work_dir \
+        --doc ddim --sample --fid --timesteps 10 --eta 0.1 \
+        --ni
