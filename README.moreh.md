@@ -68,3 +68,20 @@ training step), or the pretrained models provided by the authors, to sample new
 images. Just edit `sampling.sh` and comment out the irrelevant command.
 
 The generated images are stored in `$work_dir/image_samples`.
+
+## Legacy loading error in experimental `torch==1.10.0+cpuonly.moreh0.2.0`
+These are instructions to reproduce legacy loading error.
+
+### Environment
+```bash
+conda env create -f hacenv2.yml
+conda activate ddim
+update-moreh --force --driver-only --target 0.2.0
+```
+
+### Run
+```bash
+./sample.py
+```
+The script will failed when tried to load the downloaded checkpoint stored at
+`$HOME/.cache/diffusion_models_converted`.
