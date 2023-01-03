@@ -7,13 +7,13 @@ set -e
 config_file="cifar10.yml"
 work_dir="/data/work/ddim"
 env_file="hacenv.yml"
+#env_file="hacenv2.yml"
 
 mkdir -p $work_dir
 
 env_name=$(grep name: $env_file | awk '{print $NF}')
 conda env create -f $env_file
-conda run -n $env_name update-moreh --force
-#conda run -n $env_name update-moreh --force --driver-only --target 0.2.0
+conda run -n $env_name update-moreh --force --target 22.12.3 #--nightly
 
 n_epochs=$(grep n_epochs configs/$config_file | awk '{print $NF}')
 [[ $n_epochs -gt 10 ]] && echo "N_epoch $n_epochs too large. Abort" && exit 1
