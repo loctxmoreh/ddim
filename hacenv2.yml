@@ -1,10 +1,10 @@
-name: ddim
+name: ddim2
 dependencies:
   - python=3.8
   - pip
   - pip:
-    - torch==1.10.0+cpuonly.moreh0.2.0
-    - moreh-driver==0.2.0
+    - torch==1.10.0+cu111.moreh22.12.3
+    - moreh-driver==22.12.3
     - pyyaml
     - tensorboard
     - Pillow
